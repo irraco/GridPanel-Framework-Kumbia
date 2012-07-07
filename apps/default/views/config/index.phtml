@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta http-equiv='Content-type' content='text/html; charset=ISO-8859-1' />
+  <title>Configuraci&oacute;n del S&iacute;stema</title>
+  <?= javascript_include_tag('jquery/jquery-1[1][1].2.1') ?>
+  <?= kumbia::javascript_base() ?>
+  <?// kumbia::jscalendar_use() ?> 
+  <?= stylesheet_link_tag('calendar-system') ?>
+  <? stylesheet_link_tag('style', true) ?>
+  <?= kumbia::stylesheet_link_tags() ?>
+  <?= javascript_include_tag('jquery/interface') ?>  
+  <?= stylesheet_link_tag('dhtmlxgrid', true) ?>
+  <?= stylesheet_link_tag('dhtmlxtoolbar_xp', true) ?>
+  <?= javascript_include_tag('codebase/dhtmlxprotobar') ?>
+  <?= javascript_include_tag('codebase/dhtmlxtoolbar') ?>
+  <?= javascript_include_tag('codebase/dhtmlxcommon') ?>
+  <?= javascript_include_tag('codebase/dhtmlxgrid') ?>
+  <?= javascript_include_tag('codebase/dhtmlxgridcell') ?>
+  <?= javascript_include_tag('codebase/dhtmlxdataprocessor') ?>
+  <?= javascript_include_tag('codebase/dhtmlxtreegrid')  ?>
+ 
+ </head>
+ <body>
+<!--top dock --> 
+<div class="dock" id="dock">
+  <div class="dock-container">
+   <?= link_to_remote(img_tag('gmg/config/menu/link.png', 'alt: modulos')."<span>Modificar descripcion de modulos</span>",'jdiv: formularios', 'action: amodulo/index', 'class: dock-item')?>
+   <?= link_to_remote(img_tag('gmg/config/menu/portfolio.png', 'alt: modif y add')."<span>Modificar y Adicionar</span>",'jdiv: formularios', 'action: amodulo/index1', 'class: dock-item')?>
+   <?= link_to_remote(img_tag('gmg/config/menu/history.png', 'alt: iniciales')."<span>Datos Iniciales</span>",'jdiv: formularios', 'action: amodulo/index2', 'class: dock-item')?>
+   <?//= link_to_remote(img_tag('gmg/config/menu/email.png', 'alt: formulario')."<span>Formulario</span>",'jdiv: formularios', 'action: usuarios/nuevo_usuario', 'class: dock-item')?>
+   <?= link_to_remote(img_tag('gmg/config/menu/music.png', 'alt: instalar')."<span>Instalacion</span>",'jdiv: formularios', 'action: amodulo/index3', 'class: dock-item')?>
+   <?= link_to_remote(img_tag('gmg/config/menu/home.png', 'alt: volver')."<span>Menu Principal</span>",'jdiv: toolbar_zone', 'action: config/menu', 'class: dock-item')?>
+   <?= link_to_remote(img_tag('gmg/config/menu/rss.png', 'alt: salir')."<span>Salida</span>",'jdiv: toolbar_zone', 'action: config/menu', 'class: dock-item')?>
+  </div>
+</div>
+
+
+<table cellSpacing='0' cellPadding='1' width="100%" height="40%" align=center bgColor='#ffffff' border='0'>
+<tbody>
+<tr>
+<td vAlign=top align=middle width="100%" background="<?echo KUMBIA_PATH.'img/bg_center.gif';?>">
+
+<table cellSpacing='1' cellPadding='0' width="100%" border='0'align=center bgColor='#ffffff' >
+ <tbody>
+  <tr class='bg2'>
+   <td class='bg1'>
+   <table cellSpacing='1' cellPadding='8' width="100%" border='0' >
+       <tbody>
+       <tr class='bg1'>
+       <table align="center">
+         <tr>
+         <td align="center" valign="top" height="500px" width="1064px"><div id="formularios" ><?= img_tag('modulos/mod_adm.gif', 'alt: M&oacute;dulo de Administraci&oacute;n',"id: image") ?>
+          <br /><b class="indextitle">CONFIGURACI&Oacute;N PRINCIPAL DEL SISTEMA</b>
+         </div></td>
+         <br />         
+         </tr>         
+       </table>
+   	   </tr>
+       </tbody>
+   </table>
+   </td>
+  </tr>
+ </tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+
+<!--bottom dock -->
+<div class="dock" id="dock2">
+  <div class="dock-container2">
+   <?= link_to_remote("<span>Modificar descripcion de modulos</span>".img_tag('gmg/config/menu/link.png', 'alt: modulos'),'jdiv: formularios', 'action: amodulo/index', 'class: dock-item2')?>
+   <?= link_to_remote("<span>Modificar y Adicionar</span>".img_tag('gmg/config/menu/portfolio.png', 'alt: mod y add'),'jdiv: formularios', 'action: amodulo/index1', 'class: dock-item2')?>
+   <?= link_to_remote("<span>Datos Iniciales</span>".img_tag('gmg/config/menu/history.png', 'alt: iniciales'),'jdiv: formularios', 'action: amodulo/index2', 'class: dock-item2')?>
+   <?//= link_to_remote("<span>Formulario</span>".img_tag('gmg/config/menu/email.png', 'alt: formulario'),'jdiv: formularios', 'action: usuarios/nuevo_usuario', 'class: dock-item2')?>
+   <?= link_to_remote("<span>Instalacion</span>".img_tag('gmg/config/menu/music.png', 'alt: instalar'),'jdiv: formularios', 'action: amodulo/index3', 'class: dock-item2')?>
+   <?= link_to_remote("<span>Menu Principal</span>".img_tag('gmg/config/menu/home.png', 'alt: volver'),'jdiv: toolbar_zone', 'action: config/menu', 'class: dock-item2')?>
+   <?= link_to_remote("<span>Salida</span>".img_tag('gmg/config/menu/rss.png', 'alt: salir'),'jdiv: toolbar_zone', 'action: config/menu', 'class: dock-item2')?>
+  </div>
+</div> 
+
+<!--dock menu JS options -->
+<script type="text/javascript">
+
+	jQuery(document).ready(
+		function()
+		{
+			jQuery('#dock').Fisheye(
+				{
+					maxWidth: 50,
+					items: 'a',
+					itemsText: 'span',
+					container: '.dock-container',
+					itemWidth: 40,
+					proximity: 90,
+					halign : 'center'
+				}
+			)
+			jQuery('#dock2').Fisheye(
+				{
+					maxWidth: 60,
+					items: 'a',
+					itemsText: 'span',
+					container: '.dock-container2',
+					itemWidth: 40,
+					proximity: 80,
+					alignment : 'left',
+					valign: 'bottom',
+					halign : 'center'
+				}
+			)
+		}
+	);
+
+</script>
+</body>
+</html>    

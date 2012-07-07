@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta http-equiv='Content-type' content='text/html; charset=ISO-8859-1' />
+  <title>Configuraci&oacute;n del S&iacute;stema</title>
+  <?= javascript_include_tag('jquery/jquery-1[1][1].2.1') ?>
+  <?= kumbia::javascript_base() ?>
+  <? stylesheet_link_tag('style', true) ?>
+  <?= stylesheet_link_tag('login') ?>
+  <?= kumbia::stylesheet_link_tags() ?> 
+ </head>
+ <body>
+<br />  <br />
+<?php content() ?>
+<?= form_tag("modulos/modifica_elementos/{$elementos->id}", 'name: modi') ?>
+<table class="adminLoginTable" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+		<th colspan="2" align="center">
+        <h3>Listado de Elementos Multiples</h3>
+		</th>		
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+		<td colspan="100%" align="center">
+        <? $Gmbdescripciones->find($id);  
+           print "<b>Descripcion</b>: ".$Gmbdescripciones->descripcion;
+        ?>
+		</td>
+    </tr>
+    <tr>
+		<td align="right">Fecha de Registro:</td>
+		<td align="left"><? print $elementos->fecha_at; ?></td>		
+	</tr>
+	<tr>
+		<td align="right">Fecha de Modificacion:</td>
+		<td align="left"><? print $elementos->fecha_in; ?></td>
+	</tr>
+
+    <? $arra=explode("_",$elementos->opciones); ?>
+    
+	<tr>
+		<td align="right">Elementos:</td>
+		<td><?= radio_field_tag("opc", $arra) ?></td>				
+	</tr>
+	<tr>
+	    <td align="right" valign="top">Elemento Nuevo:</td>
+		<td><?= textupper_field_tag('nuevo') ?></td>
+	</tr>
+	</tbody>
+	<tfoot>
+	<tr>
+		<td colspan="100%" align="center">		
+		     <?= submit_tag('Eliminar Opcion',"name: quitar","class: button") ?>|||<?= submit_tag('Insertar Antes',"name: antes","class: button") ?>|||
+             <?= submit_tag('Insertar Despues',"name: despues","class: button") ?><br />
+			 <?= link_to('config/index', 'volver Principal') ?>
+		</td>
+	</tr>
+	</tfoot>
+</table>
+<?= end_form_tag() ?>
+<br /> <br />
+</body>
+</html>

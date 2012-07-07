@@ -1,0 +1,57 @@
+<table align="center">         
+         <tr>
+         <td align="rigth" class="bg1" height="500px" width="1064px">
+         <center><div id="msn">&nbsp;</div></center><br />
+         <div id="gridbox" width="100%" height="250px" style="background-color:white;"></div>
+         <div id="toolbar_zone" style="width:100%; border :1px solid Silver;"/>
+         </td></tr>
+         <tr><td></td></tr>
+         <tr><td></td></tr> 
+</table>
+<?php print $jscript; ?>
+<script>
+function ixixx(si,perque){
+ mygrid.clearAll();
+ if(si){
+  mygrid.loadXML($Kumbia.path+"default/amodulo/generateXML2/"+perque+"?adidas=1");
+ }else{
+  mygrid.loadXML($Kumbia.path+"default/amodulo/generateXML2/"+perque);
+ }
+ aad.xU(0,ka1); 
+ function ka1(value,Sg){
+  if(value.toString().PA()==''){
+    jE('El valor de la celda del campo <b>'+Sg+'</b> no puede ser vacio.');
+    return false
+  }else return true;
+ }
+}
+function addxx(orden){
+ fecka=(new Date()).getUTCMonth()+'/'+(new Date()).getUTCDate()+'/'+(new Date()).getUTCFullYear();
+ if (mygrid.iD()>0){
+  if (mygrid.di(mygrid.bI())!="-1"){
+   if (mygrid.MD(mygrid.bI())==0){
+    if (mygrid.rP(mygrid.bI())>0){     
+     if (orden=="^")mygrid.alo(mygrid.bI()+'.'+(new Date()).valueOf()+'.A',['',fecka,fecka],mygrid.bI());
+     if (orden=="v")mygrid.amC(mygrid.bI()+'.'+(new Date()).valueOf()+'.D',['',fecka,fecka],mygrid.bI());     
+    }
+   }else alert("Haga click en el icono '+' para adicionar.");
+  }else alert('Seleccione un elemento.');
+ }else alert('No existen datos para esta consulta.');
+}
+function delxx(){
+   if (mygrid.iD()==0)
+    alert('No existen elementos para realizar esta operacion.');
+   else{
+    if (mygrid.di(mygrid.bI())=="-1"){
+     alert('Seleccione un elemento.');
+    }else {
+     if (mygrid.MD(mygrid.bI())!=0){
+      alert("Haga click en el icono '+'.");
+     }else{
+      if (mygrid.rP(mygrid.bI())==1) alert('No se permite eliminar el unico elemento existente.');
+      else mygrid.iu();
+     }
+    }
+   }
+}
+</script>

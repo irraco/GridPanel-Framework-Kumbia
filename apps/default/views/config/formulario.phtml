@@ -1,0 +1,45 @@
+<h1><u>Inscripcion para Talleres</u></h1>
+<?= form_tag('asigtaller/registrar', 'name: misdatos') ?>
+<table>
+	<tr>
+		<td align="right"><b>Nombre:</b></td>
+		<td><?= text_field_tag('nombre') ?></td>
+	</tr>
+	<tr>
+		<td align="right"><b>Apellido Paterno:</b></td>
+		<td><?= text_field_tag('appat') ?></td>
+	</tr>
+	<tr>
+		<td align="right"><b>Apellido Materno:</b></td>
+		<td><?= text_field_tag('apmat') ?></td>
+	</tr>
+	<tr>
+		<td align="right"><b>Genero:</b></td>
+		<td><?= radio_field_tag("sex", array(0=>'Femenino',1=>'Masculino')) ?></td>
+	</tr>
+	
+	<tr>
+		<td align="right"><b>Fecha de Nacimiento:</b></td>
+		<td><?= text_field_tag('jscalendar1',"readonly: yes") ?>
+		<?= link_to("action: #","id: trigger", "text: ".img_tag('img.gif')) ?>
+        <a href="#" onClick="document.misdatos.jscalendar1.value='';"><?= img_tag('delete.png') ?></a>
+        <? kumbia::jscalendar_now(array("inputField"=>"jscalendar1","button"=>"trigger"),array("firstDay"=>1,"ifFormat"=>"%Y-%m-%d","timeFormat"=>"12")) ?>
+        </td>
+	</tr>
+
+	<tr>
+		<td align="right"><b>Taller:</b></td>
+		<td>
+            <? $c=explode(',',$taller); ?>
+			<?= select_tag('taller',$c)?>		
+		</td>
+	</tr>
+	<tr>
+		<td align='right'></td>
+		<td>
+			 <?= submit_tag('Enviar') ?><br />
+			 <?= link_to('asigtaller/gridalumno', 'Modificar en Grilla') ?>	             		    			 		 
+		</td>
+	</tr>    	
+</table>
+<? end_form_tag() ?>

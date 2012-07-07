@@ -1,0 +1,68 @@
+<?= form_tag("usuarios/registro_usuario", 'name: newu', 'enctype: multipart/form-data') ?>
+<table class="adminLoginTable" cellpadding="0" cellspacing="0">
+    <thead>    
+    <tr>     
+		<th colspan="2" align="center">
+        <h3>Formulario Usuario Nuevo</h3>
+		</th>		
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+	    <td align="right">Cedula de Identidad:</td>
+		<td><?= text_field_tag('ci') ?></td>
+	</tr>
+	<tr>
+	    <td align="right">Nombre:</td>
+		<td><?= text_field_tag('nombre') ?></td>
+	</tr>
+	<tr>
+	    <td align="right">Apellido Paterno:</td>
+		<td><?= text_field_tag('app') ?></td>
+	</tr>
+	<tr>
+	    <td align="right">Apellido Materno:</td>
+		<td><?= text_field_tag('apm') ?></td>
+	</tr>
+	<tr>
+	    <td align="right">Genero:</td>
+		<td><?= radio_field_tag("sex", array(F=>'Femenino',M=>'Masculino')) ?></td>
+	</tr>
+	<tr>
+	    <td align="right">Pais de Nacimiento:</td>
+		<td><? $p=explode('_',$paises->opciones);?>
+			<?= select_tag('pais',$p)?>
+			<?= text_field_tag('lugar') ?></td>
+	</tr>	
+    <tr>
+		<td align='right' valign="botton"><b>Fecha de Nacimiento:</b></td>
+		<td align='left' >
+            <?= text_field_tag('jscalendar1',"readonly: yes") ?>
+	        <?= link_to("action: #","id: trigger", "text: ".img_tag('img.gif'),"style: display:none") ?>                        		   
+            <a href="#" onClick="document.newu.jscalendar1.value='';" id="bo" style="display:none;"><?= img_tag('delete.png') ?></a>              
+            <a href="#" onClick="calendar();" id="hb"><?= img_tag('ok.gif') ?></a>                                 
+        </td>
+	</tr>
+    <tr>	
+		<td align="right" valign="top">Imagen:</td>		
+		<td><?= upload_image_tag('name: image',"dir: gmg/config/adm") ?></td>
+	</tr>
+    <tr>
+		<td align="right">Cargo:</td>
+		<td><?= text_field_tag('cargo') ?></td>
+	</tr>
+	<tr>
+		<td align="right">Email:</td>
+		<td><?= text_field_tag('mail') ?></td>
+	</tr>
+	</tbody>
+    <tfoot>
+	<tr>		
+		<td colspan="100%" align="center">
+			 <?= submit_tag('nuevo',"class: button") ?><br />
+			 <?//= link_to('config/index', 'volver Principal') ?>
+		</td>                       
+	</tr>
+	</tfoot>
+</table>
+<?= end_form_tag() ?>

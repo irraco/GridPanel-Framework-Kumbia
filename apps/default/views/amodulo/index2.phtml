@@ -1,0 +1,24 @@
+<table align="center">
+<tr><td><center>
+          <?php if ($realidad==0){ ?>
+          <h2><div id="msn">Existen datos para Modulos <? print $anio ?></div></h2>
+          <?= select_tag("ms",$modulo,"nombre","onchange: ixixx(document.getElementById(\"ms\").value);") ?>
+          <input type="Button" onclick="show(get_kumbia_url('amodulo/copypast'),'msn','html');document.getElementById('adiX').disabled=true;" id="adiX" value="CREAR CONFIGURACI&Oacute;N">
+          <?php }else{             ?>
+          <h2>Existen datos para Modulos <? print $anio ?></h2>
+          <?php }                  ?>
+</center></td></tr>
+         <tr>
+         <td align="rigth" class="bg1" height="500px" width="1064px">
+         <div id="gridbox" width="100%" height="250px" style="background-color:white;"></div>
+         </td>
+         </tr>
+</table>
+<?php print $jscript; ?>
+<script>
+function ixixx(perque){
+ document.getElementById('adiX').disabled=true;;
+ mygrid.clearAll();
+ mygrid.loadXML($Kumbia.path+"default/amodulo/generateXML2/"+perque);
+}
+</script>

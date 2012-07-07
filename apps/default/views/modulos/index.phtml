@@ -1,0 +1,25 @@
+
+<table class="bg1" border="1">
+    <tr>
+		<td colspan="100%" align="center">
+        <h1><u>Listado de M&oacute;dulos</u></h1>
+		</td>
+    </tr>
+<? foreach($superior as $campo){ ?>
+	<tr>	    
+		<td><? print utf8_encode($campo->nombre) ?></td>
+		<td><? print utf8_encode($campo->descripcion) ?></td>
+		<td><? print $campo->fecha_at ?></td>
+		<td><? print $campo->fecha_in ?></td>
+		<td><?=img_tag($campo->image,"heigth: 32", "width: 32")?></td>
+		<td><? print $campo->autores ?></td>
+		<td bgcolor="#AABCCE"><?= link_to("modulos/modificar/{$campo->id}","Grupo") ?></td>
+	    <td bgcolor="#AABCCE"><?= link_to("modulos/listasubmodulos/{$campo->id}","Modulo") ?></td>	    
+	</tr>
+<? } ?>	
+	<tr>
+		<td colspan="100%" align="center">		
+			 <?= link_to('config/index', 'volver Principal') ?>
+		</td>
+	</tr>
+</table>

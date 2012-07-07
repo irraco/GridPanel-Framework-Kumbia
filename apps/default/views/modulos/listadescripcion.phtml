@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta http-equiv='Content-type' content='text/html; charset=ISO-8859-1' />
+  <title>Configuraci&oacute;n del S&iacute;stema</title>
+  <?= javascript_include_tag('jquery/jquery-1[1][1].2.1') ?>
+  <?= kumbia::javascript_base() ?>
+  <? stylesheet_link_tag('style', true) ?>
+  <?= kumbia::stylesheet_link_tags() ?> 
+ </head>
+ <body>
+<br />  <br />
+<?php content() ?>
+<table class="bg1" border="1">    
+    <tr>
+		<td colspan="100%" align="center">
+        <h1><u>Listado de Elementos del Grupo</u></h1>
+		</td>
+    </tr>
+    <tr>
+		<td colspan="100%" align="center">
+        <h4>VALORES MULTIPLES</h4>
+		</td>
+    </tr>
+<?  $Gmamodulos->find($id); $i=0; $ll=0;
+    foreach($Gmamodulos->getGmagrupos() as $opc ){     
+     if ($opc->getGmbdescripciones()->opcconst==0){
+      $i++;     
+?>
+	<tr>
+		<td><? print $opc->getGmbdescripciones()->nombret ?></td>
+		<td><? print $opc->getGmbdescripciones()->campot ?></td>
+		<td><? print $opc->getGmbdescripciones()->descripcion ?></td>
+        <td><? print $opc->getGmbdescripciones()->fecha_at ?></td>						
+        <td><? print $opc->getGmbdescripciones()->fecha_in ?></td>
+        <td bgcolor="#AABCCE"><?= link_to("modulos/modificar_descripcion/{$opc->getGmbdescripciones()->id}","Descripcion") ?></td>
+        <td bgcolor="#AABCCE"><?= link_to("modulos/elementosm/{$opc->getGmbdescripciones()->id}","Multiples") ?></td>
+	</tr>
+<?   }
+    }
+?>
+    <tr>
+		<td colspan="100%" align="center">
+        <h4>VALORES FIJOS</h4>
+		</td>
+    </tr>
+<?     
+    foreach($Gmamodulos->getGmagrupos() as $opc ){    
+     if ($opc->getGmbdescripciones()->opcconst==1){
+      $ll++; 
+?>
+	<tr>
+		<td><? print $opc->getGmbdescripciones()->nombret ?></td>
+		<td><? print $opc->getGmbdescripciones()->campot ?></td>
+		<td><? print $opc->getGmbdescripciones()->descripcion ?></td>
+		<td><? print $opc->getGmbdescripciones()->fecha_at ?></td>
+		<td><? print $opc->getGmbdescripciones()->fecha_in ?></td>
+		<td bgcolor="#AABCCE"><?= link_to("modulos/modificar_descripcion/{$opc->getGmbdescripciones()->id}","Descripcion") ?></td>
+        <td bgcolor="#AABCCE"><?= link_to("modulos/elementosc/{$opc->getGmbdescripciones()->id}","Fijos") ?></td>
+	</tr>
+<?   }
+    }
+
+  echo $i."---".$ll;
+  if ($i==0 || $ll==0){ 
+        if ($i==0){$texto="Valores Multiples";}
+        if ($ll==0){$texto1="Valores Fijos";}
+?>	
+    <tr>
+		<td colspan="100%" align="center">
+        <h3>El Modulo seleccionado no tiene elementos de confifuracion: <?php print $texto." ".$texto1."."; ?></h3>
+		</td>
+    </tr>
+<? }  ?>
+	<tr>
+		<td colspan="100%" align="center">		
+			 <?= link_to('config/index', 'volver Principal') ?>
+		</td>
+	</tr>
+</table>
+<br /> <br />
+</body>
+</html>
