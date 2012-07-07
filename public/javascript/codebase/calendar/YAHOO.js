@@ -1,0 +1,1 @@
+var YAHOO=function(){return{util:{},widget:{},aqM:{},namespace:function(HI){if(!HI|| !HI.length){return null;}var Ko=HI.split(".");var zM=YAHOO;for(var i=(Ko[0]=="YAHOO")?1:0;i<Ko.length;++i){zM[Ko[i]]=zM[Ko[i]]||{};zM=zM[Ko[i]];}return zM;}};}();
